@@ -1,15 +1,14 @@
+import "./main.css";
+
 import Statistics from './statistics';
 import {GetStartedBtn} from '../common/buttons/buttons';
 import {ArticleText, Articles} from '../common/articles/articles';
 import Opinions from './opinions/opinions';
 import FancyContainer from '../common/fancyContainer/container';
-
 export default function Main(props) {
   return (
     <main>
       <Statistics />
-
-      <GetStartedBtn />
 
       <h1>Bring everyone together to build better products.</h1>
       <ArticleText>

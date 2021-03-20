@@ -1,10 +1,11 @@
+import "./buttons.css";
 import classNames from 'classnames';
-export function Button(props) {
-  const { inverted = false, shadow = false } = props;
+export function ButtonLink(props) {
+  const { inverted = false, shadow = true } = props;
   return (
     <a
       href={props.href}
-      className={classNames('btn',{shadow, inverted})}
+      className={classNames('btn',{shadow, inverted}, 'round')}
     >
       {props.children}
     </a>
@@ -12,5 +13,5 @@ export function Button(props) {
 }
 export function GetStartedBtn(props){
   const { inverted = false } = props;
-  return <Button href="#details" inverted={inverted} shadow={true}>Get Started</Button>
+  return <ButtonLink href="#details" inverted={inverted} shadow={true}>Get Started</ButtonLink>
 }

@@ -1,7 +1,11 @@
+import './footer.css';
 
+import logoSVG from "../images/logo.svg";
 import TextForm from '../common/TextForm/textForm';
 import {ArticleText} from '../common/articles/articles';
 import MultiColumn from '../common/multiColumn/multiColumn';
+import SocialMedias from '../common/socialMedias/social';
+
 export default function Footer(props) {
   return (
     <footer>
@@ -15,6 +19,7 @@ export default function Footer(props) {
         <p>Community</p>
         <p>Privacy Policy</p>
       </MultiColumn>
+      <SocialMedias/>
       <ArticleText>Copyright 2020. All Rights Reserved</ArticleText>
 
       <div className="attribution">
@@ -31,6 +36,7 @@ export default function Footer(props) {
           KrutonS
         </a>
         .
+        <img src={logoSVG} alt="manage logo"/>
       </div>
     </footer>
   );

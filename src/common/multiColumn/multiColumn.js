@@ -5,7 +5,7 @@ export default function MultiColumn(props){
     columnCount: props.columns
   }
   return (
-    <div class={`multi-columns ${props.columns}-columns`} style={style}>
+    <div className={`multi-columns ${props.columns}-columns`} style={style}>
       {props.children}
     </div>
   );

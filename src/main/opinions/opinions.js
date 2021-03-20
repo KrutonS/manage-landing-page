@@ -1,5 +1,8 @@
+import "./opinions.css";
+
 import Slideshow from '../../common/slideshow/slideshow';
 import {OPINIONS, AVATARS} from '../../data';
+
 function Opinion(props) {
   return (
     <article className="opinions-item">
