@@ -10,12 +10,18 @@
   --primary-orange: hsl(12, 88%, 59%);
   --primary-blue: hsl(228, 39%, 23%);
   /* neutral */
-  --neutral-pale-orange: hsl(12, 80%, 62%);
+  --neutral-pale-orange: hsl(12, 80%, 72%);
   --neutral-pale-blue: hsl(227, 12%, 61%);
   --neutral-dark-blue: hsl(233, 12%, 13%);
   --neutral-pale-red: hsl(13, 100%, 96%);
-  --neutral-pale-gray: hsl(0, 0%, 70%);
+  --neutral-pale-gray: hsl(0, 0%, 60%);
+
+  /* page margin */
+
+  /* for article */
+  --margin-vertical:10px;     
 }
+
 /*** font ***/
 body{
   font-family: 'Be Vietnam', sans-serif;

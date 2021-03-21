@@ -5,3 +5,11 @@ main>h2{
 main > img, main > .round{
   margin: auto;
 }
+.statistics{
+  width: 250px;
+}
+@media screen and (min-width: 1440px){
+  .statistics{
+    width: auto;
+  }
+}

@@ -8,8 +8,7 @@ import hamburgerSVG from "../images/icon-hamburger.svg";
 import closeSVG from "../images/icon-close.svg";
 import { GetStartedBtn } from "../common/buttons/buttons";
 
-const mobileWidth = 375; //if you change this change also css variable
-const desktopWidth = 1440;
+const desktopWidth = 1440; //if you change this change also css variable
 function Nav(props) {
   const {isMobile, show} = props;
   return (

@@ -1,0 +1,33 @@
+.article-section{
+  margin-top: 60px;
+}
+.article-text{
+  color: var(--neutral-pale-gray);
+} 
+.article-header{
+  display: flex;
+  align-items: center;
+  background-color: var(--neutral-pale-red);
+  box-sizing: content-box;
+  margin-right: calc(-2*var(--margin-vertical));
+  margin-bottom: 10px;
+}
+.article-header h4{
+  display: block;
+  width: 100%;
+}
+.article-section:first-of-type{
+  counter-reset: article;
+}
+.article-header::before{
+  counter-increment: article;
+  content: counters(article, '.', decimal-leading-zero);
+  background-color: var(--primary-orange);
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+.article-section .article-text{
+  text-align: left;
+}

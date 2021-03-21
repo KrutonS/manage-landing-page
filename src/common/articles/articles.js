@@ -1,8 +1,12 @@
+import './articles.css';
+
 import {ARTICLES} from '../../data';
+
 export function ArticleHeader(props) {
   return (
     <header className="article-header">
-      <h3>{props.children}</h3>
+    {/* <div className='article-counter round'></div> */}
+      <h4>{props.children}</h4>
     </header>
   );
 }
