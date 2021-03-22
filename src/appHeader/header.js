@@ -57,9 +57,9 @@ export default function AppHeader(props) {
   });
 
   // disable scrolling
-  document.body.style.overflow = show && isMobile ? "hidden" : "initial";
+  // document.body.style.overflow = show && isMobile ? "hidden" : "initial";
   return (
-    <header className="app-header dialog">
+    <header className="app-header">
       <img className="logo" src={logoSVG} alt="manage logo" />
       <img
         src={show ? closeSVG : hamburgerSVG}

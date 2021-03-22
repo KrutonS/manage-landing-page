@@ -16,10 +16,9 @@
   --neutral-pale-red: hsl(13, 100%, 96%);
   --neutral-pale-gray: hsl(0, 0%, 60%);
 
-  /* page margin */
-
-  /* for article */
-  --margin-vertical:10px;     
+  /* page padding */
+  --padding-horizontal-mobile:20px;  
+  --padding-horizontal-desktop:120px;  
 }
 
 /*** font ***/
