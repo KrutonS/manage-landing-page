@@ -2,7 +2,7 @@
   margin-top: 60px;
 }
 .article-text{
-  color: var(--neutral-pale-gray);
+  color: var(--neutral-pale-blue);
   margin-bottom: 45px;
 }
 .article-text.compact{
@@ -54,6 +54,6 @@
   }
   .article-text.compact{
     margin-left: 0;
-    margin-right: 320px;
+    margin-right: 220px;
   }
 }

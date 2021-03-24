@@ -1,15 +1,15 @@
 import "./opinions.css";
 
 import Slideshow from '../../common/slideshow/slideshow';
-import {OPINIONS, AVATARS} from '../../data';
+import {OPINIONS, AVATARS} from '../../globals';
 
 function Opinion(props) {
   return (
-    <article className="opinions-item">
+    <div className={props.className}>
       <img className="avatar" src={props.avatar} alt="avatar" />
       <h3>{props.fullName}</h3>
       <blockquote>{props.children}</blockquote>
-    </article>
+    </div>
   );
 }
 export default function Opinions(props) {
@@ -24,6 +24,7 @@ export default function Opinions(props) {
               fullName={fullName}
               key={fullName}
               avatar={AVATARS[op.firstName.toLowerCase()]}
+              className={"opinions-item dialog"}
             >
               {op.text}
             </Opinion>

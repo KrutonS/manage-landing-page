@@ -6,6 +6,7 @@
   padding-top: 60px;
   padding-bottom: 50px;
   margin-bottom: 80px;
+  z-index: 1;
 }
 header>.logo{
   float: left;
@@ -43,7 +44,7 @@ nav{
   transition: color .2s;
 }
 .nav-item:hover{
-  color: var(--neutral-pale-gray) ;
+  color: var(--neutral-pale-blue) ;
 }
 .nav-item + .nav-item{
   margin-top: 20px;
@@ -84,7 +85,6 @@ nav.show{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* height: 200px; */
     padding-bottom: 20px;
   }
   .hamburger{

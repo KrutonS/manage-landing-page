@@ -1,6 +1,6 @@
 import './articles.css';
 
-import {ARTICLES} from '../../data';
+import {ARTICLES} from '../../globals';
 import classNames from 'classnames';
 
 export function ArticleHeader(props) {

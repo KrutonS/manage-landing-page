@@ -6,15 +6,15 @@ import { ArticleText, Articles } from "../common/articles/articles";
 import Opinions from "./opinions/opinions";
 import FancyContainer from "../common/fancyContainer/container";
 function GridSection(props) {
-  return <section className={"grid-section " + props.class}>{props.children}</section>;
+  return <section className={"grid-section " + props.className}>{props.children}</section>;
 }
 function MainGrid(props) {
   return (
     <div className="main-grid">
-      <GridSection class="statistics">
+      <GridSection className="statistics">
         <Statistics />
       </GridSection>
-      <GridSection class='order1'>
+      <GridSection className='order1'>
         <h1>Bring everyone together to build better products.</h1>
         <ArticleText compact={true}>
           Manage makes it simple for software teams to plan day-to-day tasks
