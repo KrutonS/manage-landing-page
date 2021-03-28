@@ -1,13 +1,13 @@
 import "./header.css";
 
-import { useState, useEffect, Fragment, useContext } from "react";
+import { useState, Fragment, useContext } from "react";
 import classNames from "classnames";
 
 import logoSVG from "../images/logo.svg";
 import hamburgerSVG from "../images/icon-hamburger.svg";
 import closeSVG from "../images/icon-close.svg";
 import { GetStartedBtn } from "../common/buttons/buttons";
-import { checkIfMobile, MobileScreenContext } from '../globals';
+import { MobileScreenContext } from '../globals';
 
 function Nav(props) {
   const {isMobile, show} = props;
