@@ -1,6 +1,12 @@
 .app-header{
-  position: relative;
+  position: sticky;
+  top: 0;
+  background: rgb(255,255,255,.75);
+  background: linear-gradient(0, rgba(255,255,255,0.7) 0%, rgba(255,255,255,1) 100%); 
+  padding-top: 60px;
+  padding-bottom: 50px;
   margin-bottom: 80px;
+  z-index: 1;
 }
 header>.logo{
   float: left;
@@ -16,7 +22,7 @@ header>.logo{
 }
 nav{
   clear: both;
-  background-color: white;
+  background: white;
   width: 90%;
   position: absolute;
   top: 115px;
@@ -38,7 +44,7 @@ nav{
   transition: color .2s;
 }
 .nav-item:hover{
-  color: var(--neutral-pale-gray) ;
+  color: var(--neutral-pale-blue) ;
 }
 .nav-item + .nav-item{
   margin-top: 20px;
@@ -52,11 +58,11 @@ nav{
   top: 0;
   background: rgb(255,255,255);
   background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 100%); 
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(1,-0.16,1,1.22);
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(1,0,1,1);
 }
 .nav-blackout.show{
-  opacity: 1;
+  transform: translateY(0);
 }
 nav.show{
   transform: translate(-50%,0);
@@ -64,8 +70,9 @@ nav.show{
 }
 @media screen and (min-width:1440px){
   nav{
+    background: none;
     position: absolute;
-    top: 58%;
+    top: 50%;
     width: auto;
     opacity: initial;
     transform: translate(-50%,0);
@@ -78,7 +85,7 @@ nav.show{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* height: 200px; */
+    padding-bottom: 20px;
   }
   .hamburger{
     display: none;

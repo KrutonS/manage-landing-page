@@ -1,6 +1,7 @@
 import './articles.css';
 
-import {ARTICLES} from '../../data';
+import {ARTICLES} from '../../globals';
+import classNames from 'classnames';
 
 export function ArticleHeader(props) {
   return (
@@ -11,7 +12,8 @@ export function ArticleHeader(props) {
   );
 }
 export function ArticleText(props) {
-  return <article className="article-text">{props.children}</article>;
+  const {compact} = props;
+  return <article className={classNames("article-text", {compact})}>{props.children}</article>;
 }
 export function Article(props) {
   return (

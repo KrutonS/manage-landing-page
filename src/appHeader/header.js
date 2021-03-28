@@ -1,14 +1,14 @@
 import "./header.css";
 
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 import classNames from "classnames";
 
 import logoSVG from "../images/logo.svg";
 import hamburgerSVG from "../images/icon-hamburger.svg";
 import closeSVG from "../images/icon-close.svg";
 import { GetStartedBtn } from "../common/buttons/buttons";
+import { checkIfMobile, MobileScreenContext } from '../globals';
 
-const desktopWidth = 1440; //if you change this change also css variable
 function Nav(props) {
   const {isMobile, show} = props;
   return (
@@ -35,31 +35,15 @@ function Nav(props) {
   );
 }
 
-const getWidth = () =>
-  window.innerWidth ||
-  document.documentElement.clientWidth ||
-  document.body.clientWidth;
 
 export default function AppHeader(props) {
-  const width = getWidth();
-  const [isMobile, setIsMobile] = useState(width < desktopWidth);
+  // const [isMobile, setIsMobile] = useState(checkIfMobile());
+  const isMobile = useContext(MobileScreenContext);
+
   const [show, setShow] = useState(!isMobile);
-  useEffect(() => {
-    let timeoutId = null;
-    function resizeListener() {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => setIsMobile(getWidth() < desktopWidth), 200);
-      setIsMobile(getWidth() < desktopWidth);
-    }
-
-    window.addEventListener("resize", resizeListener);
-    return () => window.removeEventListener("resize", resizeListener);
-  });
-
-  // disable scrolling
-  document.body.style.overflow = show && isMobile ? "hidden" : "initial";
+  
   return (
-    <header className="app-header dialog">
+    <header className="app-header">
       <img className="logo" src={logoSVG} alt="manage logo" />
       <img
         src={show ? closeSVG : hamburgerSVG}

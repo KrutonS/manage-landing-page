@@ -1,4 +1,4 @@
-.btn:hover{
+.btn:hover, .btn:active{
   background-color: var(--neutral-pale-orange);
   color: white;
 }
