@@ -1,5 +1,6 @@
 .slideshow {
-  margin: 0 calc(-1 * var(--padding-horizontal-mobile));
+  margin: 0 calc(-1 * var(--padding-horizontal-mobile)) 50px;
+
 }
 .slideshow-mask {
   overflow: hidden;
@@ -13,9 +14,6 @@
 .slideshow-container > * {
   flex-shrink: 0;
   flex-grow: 0;
-}
-.slideshow-container > .active{
-  background-color: red;
 }
 .slideshow-dot {
   cursor: pointer;
@@ -35,6 +33,6 @@
 } */
 @media screen and (min-width: 1440px) {
   .slideshow {
-    margin: 0 calc(-1 * var(--padding-horizontal-desktop));
+    margin: 0 calc(-1 * var(--padding-horizontal-desktop)) 50px;
   }
 }

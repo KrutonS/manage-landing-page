@@ -40,11 +40,13 @@ export default function AppHeader(props) {
   // const [isMobile, setIsMobile] = useState(checkIfMobile());
   const isMobile = useContext(MobileScreenContext);
 
-  const [show, setShow] = useState(!isMobile);
+  const [show, setShow] = useState(false);
   
   return (
     <header className="app-header">
-      <img className="logo" src={logoSVG} alt="manage logo" />
+      <a href='/'>
+        <img className="logo" src={logoSVG} alt="manage logo" />
+      </a>
       <img
         src={show ? closeSVG : hamburgerSVG}
         alt="menu"

@@ -28,4 +28,8 @@ main img, main .round{
   .order1{
     order: -1;
   }
+
+  .opinions + .btn{
+    margin-bottom: 140px;
+  }
 }

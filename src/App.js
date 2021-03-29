@@ -1,35 +1,31 @@
 import "./reset.css";
 import "./App.css";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import AppHeader from './appHeader/header';
-import Footer from './footer/footer';
+import AppHeader from "./appHeader/header";
+import Footer from "./footer/footer";
 import Main from "./main/main";
 
-import { MobileScreenContext, checkIfMobile } from './globals';
-
-function App() {
-  const [isMobile, setIsMobile] = useState(checkIfMobile());
+import { MobileScreenContext } from "./globals";
+function useCheckIfMobileState() {
+  const queryList = window.matchMedia("(min-width:1440px)");
+  const [isMobile, setIsMobile] = useState(!queryList.matches);
   useEffect(() => {
-    let timeoutId = null;
-    function resizeListener() {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => setIsMobile(checkIfMobile), 200);
-      setIsMobile(checkIfMobile);
-    }
-
-    window.addEventListener("resize", resizeListener);
-    return () => window.removeEventListener("resize", resizeListener);
+    const listener = () => setIsMobile(!queryList.matches);
+    queryList.addEventListener("change", listener);
+    return () => queryList.removeEventListener("change", listener);
   });
+  return isMobile;
+}
+function App() {
   return (
-    <div className="App">
-      <MobileScreenContext.Provider value={isMobile}>
+    <div className='App'>
+      <MobileScreenContext.Provider value={useCheckIfMobileState()}>
         <AppHeader />
         <Main />
         <Footer />
       </MobileScreenContext.Provider>
-
     </div>
   );
 }

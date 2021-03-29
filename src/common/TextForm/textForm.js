@@ -1,4 +1,7 @@
-import {useState} from 'react';
+import "./textForm.css";
+import "../buttons/buttons.css"
+import { useState } from "react";
+
 export default function TextForm(props) {
   function handleSubmit(event) {
     alert("wysłano: " + text);
@@ -6,16 +9,20 @@ export default function TextForm(props) {
   }
   const [text, setText] = useState("");
   return (
-    <form className="text-form" method="get" onSubmit={handleSubmit}>
+    <form className='text-form' method='get' onSubmit={handleSubmit}>
       <input
-        type="text"
+        className='round input'
+        required
+        type='email'
+        title={props.placeholder}
         placeholder={props.placeholder}
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <input
-        type="submit"
-        className="btn round orange"
+        className='btn round orange'
+        type='submit'
+        title={props.btnValue}
         value={props.btnValue}
       />
     </form>

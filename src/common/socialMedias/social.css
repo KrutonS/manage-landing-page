@@ -1,0 +1,17 @@
+.social-medias{
+  /* margin: 0 20px; */
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
+}
+.social-medias svg{
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+.social-medias a path{
+  transition: .2s fill;
+}
+.social-medias a:hover path, .social-medias a:active path{
+  fill: var(--primary-orange);
+}

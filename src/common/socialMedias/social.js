@@ -1,19 +1,26 @@
-import fb from '../../images/icon-facebook.svg';
-import yt from '../../images/icon-youtube.svg';
-import tw from '../../images/icon-twitter.svg';
-import pin from '../../images/icon-pinterest.svg';
-import insta from '../../images/icon-instagram.svg';
+import "./social.css";
+
+import {ReactComponent as Fb} from '../../images/icon-facebook.svg';
+import {ReactComponent as Yt} from '../../images/icon-youtube.svg';
+import {ReactComponent as Tw} from '../../images/icon-twitter.svg';
+import {ReactComponent as Pin} from '../../images/icon-pinterest.svg';
+import {ReactComponent as Insta} from '../../images/icon-instagram.svg';
+
+import {addProps} from '../../globals';
+
 const ICONS = [
-  [fb, 'https://www.facebook.com/', "facebook"],
-  [yt, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', "youtube"],
-  [tw, 'https://twitter.com/', "twitter"],
-  [pin, 'https://pinterest.com', "pin"],
-  [insta, 'https://instagram.com', "instagram"]
+  [<Fb/>, 'https://www.facebook.com/', "facebook"],
+  [<Yt/>, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', "youtube"],
+  [<Tw/>, 'https://twitter.com/', "twitter"],
+  [<Pin/>, 'https://pinterest.com', "pin"],
+  [<Insta/>, 'https://instagram.com', "instagram"]
 ];
+
 export default function SocialMedias(props){
+  ICONS.forEach(([Icon])=>console.log(Icon));
   return (
     <div className="social-medias">
-      {ICONS.map(([iconUrl, hrefLink, alt])=><a href={hrefLink} key={alt}><img src={iconUrl} alt={alt}/></a>)}
+      {ICONS.map(([icon, hrefLink, alt])=><a href={hrefLink} key={alt}>{addProps(icon, {title:alt, viewBox:'0 0 22 22'})}</a>)}
     </div>
   );
 }

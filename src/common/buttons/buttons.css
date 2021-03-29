@@ -4,10 +4,17 @@
 }
 .btn{
   display: block;
-  width: 150px;
-  /* margin: 100px auto; */
+  padding: 10px 25px;
+  width: fit-content;
   font-weight: 700;
   transition: .3s ease-out;
+  transition-property: color, background;
+  cursor: pointer;
+}
+
+.btn.inverted:hover, .btn.inverted:active{
+  background-color: white;
+  color: var(--neutral-pale-orange);
 }
 
 .shadow{

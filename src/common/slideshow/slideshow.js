@@ -3,36 +3,43 @@ import "./slideshow.css";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { MobileScreenContext } from "../../globals";
+import {addProps} from '../../globals';
 // console.log(MobileScreenContext);
 export default function Slideshow(props) {
-  function addProps(node, addProps) {
-    let props = { ...node.props };
-    for (let key of Object.keys(addProps)) {
-      if (props.hasOwnProperty(key))
-        props[key] = `${props[key]} ${addProps[key]}`;
-      else props[key] = addProps[key];
-    }
-    return React.cloneElement(node, props);
-  }
-
+  // well this concatenates props of a node
+  
+  // use this handler instead of setIndex
   function handleSetIndex(target) {
-    if (target < index) setOverflow(true);
-    if (target >= childrenCount) target-=childrenCount;
-    // else if (target > index) setIndex(target);
+    if (target < index || target >= childrenCount) {
+      setOverflow(true);
+      if (target >= childrenCount) target -= childrenCount;
+    }
     setIndex(target);
   }
+  // get repeated children and count
+  function generateChildren() {
+    const children = React.Children.map(props.children, (child, i) =>
+      addProps(child, {
+        className: classNames("slideshow-item", { active: i === index })
+      })
+    );
+    const childrenCount = React.Children.count(children);
+    const items = React.Children.map(
+      [children[childrenCount - 1], ...children, ...children, children[0]],
+      (child, i) => addProps(child, { key: i })
+    );
+    return {children:items, childrenCount};
+  }
+  // it says what screen are you using (mobile, desktop)
+  const isMobile = useContext(MobileScreenContext);
+  
+  //***  STATE ****//
   const [index, setIndex] = useState(0);
   const [overflow, setOverflow] = useState(false);
-  const children = React.Children.map(props.children, (child, i) =>
-    addProps(child, {
-      className: classNames("slideshow-item", { active: i === index }),
-    })
-  );
-  const childrenCount = React.Children.count(children);
-  const items = React.Children.map(
-    [children[childrenCount - 1], ...children, ...children, children[0]],
-    (child, i) => addProps(child, { key: i })
-  );
+  const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
+  
+  //*** nodes ***//
+  const {children, childrenCount} = generateChildren();
   const dots = new Array(childrenCount)
     .fill().map((_, i) => (
       <span
@@ -41,49 +48,67 @@ export default function Slideshow(props) {
         onClick={() => handleSetIndex(i)}
       ></span>
     ));
-  const isMobile = useContext(MobileScreenContext);
-  console.log({isMobile});
   const containerRef = useRef();
-  const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
-  if (index >= childrenCount) setOverflow(true);
-
+  //***  EFFECTS ***//
+  
+  // disable and reset transition for overflow
   useEffect(() => {
     const container = containerRef.current;
     container.style.transition = null;
 
     function handleTransitionEnd() {
+      console.log("transitionend");
       if (overflow) {
         container.style.transition = "none";
         setOverflow(false);
       }
     }
+
     container.addEventListener("transitionend", handleTransitionEnd);
     return () =>
       container.removeEventListener("transitionend", handleTransitionEnd);
   }, [overflow]);
 
+  // get and update width and gap
   useEffect(() => {
     setSlideData({
-      width: (props.slideRef.current.clientWidth),
-      gap: parseInt(window.getComputedStyle(containerRef.current).getPropertyValue("column-gap"))
+      width: props.slideRef.current.clientWidth,
+      gap: parseInt(
+        window
+          .getComputedStyle(containerRef.current)
+          .getPropertyValue("column-gap")
+      ),
     });
   }, [props.slideRef, isMobile]);
   
-  const {width, gap} = slideData;
+  // autoplay
+  useEffect(() => {
+    function autoPlay() {
+      handleSetIndex(index + 1);
+      console.log("next");
+    }
+    const autoPlayTimer = setTimeout(autoPlay, 5000);
+    return () => clearTimeout(autoPlayTimer);
+    // I dont plan on changing the function so
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index]);
+
+  const { width, gap } = slideData;
   const offset = overflow ? childrenCount : 0;
   const translate = isMobile
-    ?  -width - (width + gap) * (index + offset)
+    ? -width -gap/4  - (width + gap) * (index + offset)
     : -width / 2 - (width + gap) * (index + offset);
-    console.log(slideData);
+  console.log(width);
   const style = { transform: `translateX(${translate}px)` };
+
   return (
     <section className='slideshow'>
       <div className='slideshow-mask'>
         <div className='slideshow-container' style={style} ref={containerRef}>
-          {items}
+          {children}
         </div>
       </div>
-      <div className='slideshow-dots-container'>{dots}</div>
+      {isMobile && <div className='slideshow-dots-container'>{dots}</div>}
     </section>
   );
 }

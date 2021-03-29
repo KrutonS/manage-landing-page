@@ -45,7 +45,7 @@ export default function Main(props) {
       <Opinions />
       <GetStartedBtn />
       <FancyContainer>
-        Simplify how your team works today.
+        <h2>Simplify how your team works today.</h2>
         <GetStartedBtn inverted={true} />
       </FancyContainer>
     </main>

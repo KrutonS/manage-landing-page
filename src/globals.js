@@ -1,3 +1,4 @@
+import React from 'react'
 
 import anisha from "./images/avatar-anisha.png";
 import ali from "./images/avatar-ali.png";
@@ -54,13 +55,15 @@ export const OPINIONS = [
     "“Their software allows us to track, manage and collaborate on our projects from anywhere. It keeps the whole team in-sync without being intrusive.”"
   ),
 ];
-const desktopWidth = 1440; //if you change this change also css variable
-const getWidth = () =>
-  window.innerWidth ||
-  document.documentElement.clientWidth ||
-  document.body.clientWidth;
-  
-export function checkIfMobile() { return getWidth() < desktopWidth; }
+export function addProps(node, addProps) {
+  let props = { ...node.props };
+  for (let key of Object.keys(addProps)) {
+    if (props.hasOwnProperty(key))
+      props[key] = `${props[key]} ${addProps[key]}`;
+    else props[key] = addProps[key];
+  }
+  return React.cloneElement(node, props);
+}
 
 const MobileScreenContext = createContext();
 MobileScreenContext.displayName='mobileScreenContext';
