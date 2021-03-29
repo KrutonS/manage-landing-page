@@ -4,7 +4,6 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { MobileScreenContext } from "../../globals";
 import {addProps} from '../../globals';
-// console.log(MobileScreenContext);
 export default function Slideshow(props) {
   // well this concatenates props of a node
   
@@ -57,7 +56,6 @@ export default function Slideshow(props) {
     container.style.transition = null;
 
     function handleTransitionEnd() {
-      console.log("transitionend");
       if (overflow) {
         container.style.transition = "none";
         setOverflow(false);
@@ -98,7 +96,6 @@ export default function Slideshow(props) {
   const translate = isMobile
     ? -width -gap/4  - (width + gap) * (index + offset)
     : -width / 2 - (width + gap) * (index + offset);
-  console.log(width);
   const style = { transform: `translateX(${translate}px)` };
 
   return (

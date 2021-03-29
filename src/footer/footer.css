@@ -14,10 +14,16 @@ footer{
   fill: var(--neutral-pale-gray);
 }
 .footer-grid>*:not(:first-child){
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.footer-grid > .article-text{
+  font-size: .8em;
 } 
 @media screen and (min-width:1440px){
+  .footer-grid>*:not(:first-child){
+    margin: 0;
+  }
   .footer-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
