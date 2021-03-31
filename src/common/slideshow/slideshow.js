@@ -100,7 +100,7 @@ export default function Slideshow(props) {
   }, [index]);
   const { width, gap } = slideData;
   const offset = overflow ? 0 : -childrenCount;
-  const translate = -width / 2 - (width + gap) * (index + offset);
+  const translate = -(width+gap)/2 - (width + gap) * (index + offset);
   const style = { transform: `translateX(${translate}px)` };
   return (
     <section className='slideshow'>
