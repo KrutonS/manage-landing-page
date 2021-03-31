@@ -1,10 +1,14 @@
 .slideshow {
   margin: 0 calc(-1 * var(--padding-horizontal-mobile)) 50px;
 /* background: red; */
+  display: flex;
+  justify-content: center;
 }
+.active{background-color: red;}
 .slideshow-mask {
   overflow: hidden;
   width: 100%;
+  max-width: 2500px;
 }
 .slideshow-container {
   display: flex;
