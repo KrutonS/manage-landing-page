@@ -8,7 +8,7 @@ const Opinion = forwardRef((props, ref)=>{
   return (
     <div className={props.className} id={props.id} ref={ref}>
       <img className="avatar" src={props.avatar} alt="avatar" />
-      <h3>{props.fullName}</h3>
+      <h3>{props.fullName}</h3> 
       <blockquote>{props.children}</blockquote>
     </div>
   );
@@ -19,8 +19,8 @@ export default function Opinions(props) {
     <section className="opinions">
       <h2>What they’ve said</h2>
       <Slideshow slideRef={opinionRef}>
-        {OPINIONS.map((op) => {
-          const fullName = op.firstName + op.secondName;
+        {OPINIONS && OPINIONS.map((op) => {
+          const fullName = op.firstName +' '+ op.secondName;
           return (
             <Opinion
               fullName={fullName}

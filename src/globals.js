@@ -56,6 +56,7 @@ export const OPINIONS = [
   ),
 ];
 export function addProps(node, addProps) {
+  if(!node) return;
   let props = { ...node.props };
   for (let key of Object.keys(addProps)) {
     if (props.hasOwnProperty(key))

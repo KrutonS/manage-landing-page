@@ -1,6 +1,6 @@
 .slideshow {
   margin: 0 calc(-1 * var(--padding-horizontal-mobile)) 50px;
-
+/* background: red; */
 }
 .slideshow-mask {
   overflow: hidden;
@@ -8,8 +8,10 @@
 }
 .slideshow-container {
   display: flex;
+  justify-content: center;
   gap: 20px;
-  transition: transform 1s;
+  transition: transform 1.5s cubic-bezier(.25, 0.1, 0.32, 1.1);
+  min-height: 50px;
 }
 .slideshow-container > * {
   flex-shrink: 0;

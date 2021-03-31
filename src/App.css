@@ -12,8 +12,11 @@
     url("./images/bg-tablet-pattern.svg"),
     url("./images/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
-  background-position: -110% -2%, 320% 22%;
+  background-position: 20% 0%, 50% 680px;
+  background-position: 80px -60px, 180px 680px;
+
   background-size: 120%, 80%;
+  background-size: 430px, 290px;
 }
 
 .App > * {

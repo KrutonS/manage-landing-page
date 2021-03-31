@@ -17,7 +17,6 @@ const ICONS = [
 ];
 
 export default function SocialMedias(props){
-  ICONS.forEach(([Icon])=>console.log(Icon));
   return (
     <div className="social-medias">
       {ICONS.map(([icon, hrefLink, alt])=><a href={hrefLink} key={alt}>{addProps(icon, {title:alt, viewBox:'0 0 22 22'})}</a>)}
