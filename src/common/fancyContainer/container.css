@@ -33,7 +33,8 @@
     transform: scale(-1,-1);
     background-color: var(--primary-orange);
     background-image: url('../../images/bg-simplify-section-desktop.svg');
-    background-position: -260px -20px;
+    background-position: calc(100% - 330px) -20px;
+    background-size: 100%;
     background-repeat: no-repeat;
   }
   .fancy-container > .round, .fancy-container > *{

@@ -12,11 +12,11 @@
     url("./images/bg-tablet-pattern.svg"),
     url("./images/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
-  background-position: 20% 0%, 50% 680px;
-  background-position: 80px -60px, 180px 680px;
+  background-position: calc(50% + 120px) -20px, calc(100% + 150px)  560px;
+  /* background-position: 80px -60px, 180px 680px; */
 
-  background-size: 120%, 80%;
   background-size: 430px, 290px;
+  
 }
 
 .App > * {
@@ -65,8 +65,9 @@ h3 {
 }
 @media screen and (min-width: 1440px) {
   .App {
-    background-position: 140% -15%, -70% 70%;
-    background-size: unset;
+    background-position: calc(75% + 340px) -150px, -650px 1000px;
+    background-size: 800px, 900px;
+  
   }
   .App > * {
     padding-left: var(--padding-horizontal-desktop);
