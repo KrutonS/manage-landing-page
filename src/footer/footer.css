@@ -3,7 +3,7 @@ footer{
   padding-top: 60px;
   color: var(--neutral-pale-gray);
 }
-footer a:focus, .btn:focus{
+footer a:focus, footer .btn:focus{
   outline-color: white;
 }
 .link{
