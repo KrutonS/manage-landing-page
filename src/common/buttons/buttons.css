@@ -1,4 +1,4 @@
-.btn:hover, .btn:active{
+.btn:hover, .btn:active, .btn:focus{
   background-color: var(--neutral-pale-orange);
   color: white;
 }
@@ -12,9 +12,12 @@
   cursor: pointer;
 }
 
-.btn.inverted:hover, .btn.inverted:active{
+.btn.inverted:hover, .btn.inverted:active, .btn.inverted:focus{
   background-color: white;
   color: var(--neutral-pale-orange);
+}
+.btn:focus, .btn:active{
+  outline: 1px dotted black;
 }
 
 .shadow{

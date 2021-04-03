@@ -3,6 +3,9 @@ footer{
   padding-top: 60px;
   color: var(--neutral-pale-gray);
 }
+footer a:focus, .btn:focus{
+  outline-color: white;
+}
 .link{
   color: inherit;
   transition: .2s color;
@@ -31,7 +34,8 @@ footer{
     grid-template-areas: 
       "logo nav nav input"
       "social nav nav copyright";
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 60px;
   }
   .footer-grid > .text-form{
     grid-area: input;

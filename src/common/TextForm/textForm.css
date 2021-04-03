@@ -1,16 +1,14 @@
 .text-form{
   display: flex;
   justify-content: center;
-  /* height: 100px; */
-  /* justify-content: space-between; */
 }
 .text-form>.input{
   background: white;
   color: var(--primary-blue);
   margin-right: 10px;
   width: 25ch;
-  /* float: left; */
 }
+
 .text-form>*{
   flex-shrink: 0;
   flex-grow: 0;
