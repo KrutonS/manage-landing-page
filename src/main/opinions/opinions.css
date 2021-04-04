@@ -1,19 +1,19 @@
-.opinions-item{
+.opinions-item {
   position: relative;
   background: var(--neutral-pale-gray);
   margin-top: 50px;
   padding: 40px 25px 25px;
   width: 330px;
 }
-.avatar{
+.avatar {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70px;
 }
-@media screen and (min-width:1440px){
-  .opinions-item{
+@media screen and (min-width: 1000px) {
+  .opinions-item {
     width: 740px;
   }
 }

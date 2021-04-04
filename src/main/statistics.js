@@ -1,4 +1,4 @@
-import statisticsSVG from '../images/illustration-intro.svg';
+import statisticsSVG from "../images/illustration-intro.svg";
 export default function Statistics(props) {
-  return <img src={statisticsSVG} alt="statistics"/>;
+	return <img src={statisticsSVG} alt='statistics' />;
 }

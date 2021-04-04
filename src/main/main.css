@@ -12,7 +12,7 @@ main img, main .round{
 .statistics>img{
   width: 250px;
 }
-@media screen and (min-width: 1440px){
+@media screen and (min-width: 1000px){
   .statistics>img{
     width: auto;
   }

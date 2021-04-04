@@ -1,33 +1,33 @@
-.article-section{
+.article-section {
   margin-top: 60px;
 }
-.article-text{
+.article-text {
   color: var(--neutral-pale-blue);
   margin-bottom: 45px;
 }
-.article-text.compact{
+.article-text.compact {
   margin-right: 15px;
   margin-left: 15px;
 }
-.article-header{
+.article-header {
   display: flex;
   align-items: center;
   background-color: var(--neutral-pale-red);
   border-radius: 100px 0 0 100px;
-  margin-right: calc(-1*var(--padding-horizontal-mobile));
+  margin-right: calc(-1 * var(--padding-horizontal-mobile));
   margin-bottom: 10px;
 }
-.article-header>h4{
+.article-header > h4 {
   display: block;
   width: 100%;
   margin-left: 15px;
 }
-.article-section:first-of-type{
+.article-section:first-of-type {
   counter-reset: article;
 }
-.article-header::before{
+.article-header::before {
   counter-increment: article;
-  content: counters(article, '.', decimal-leading-zero);
+  content: counters(article, ".", decimal-leading-zero);
   background-color: var(--primary-orange);
   padding: 5px;
   text-align: center;
@@ -36,22 +36,22 @@
   color: white;
   font-weight: bold;
 }
-.article-section{
+.article-section {
   text-align: left;
 }
 
-@media screen and (min-width:1440px){
-  .article-header{
+@media screen and (min-width: 1000px) {
+  .article-header {
     background: none;
   }
-  .article-header>h4{
+  .article-header > h4 {
     margin-left: 30px;
   }
-  .article-section > .article-text{
+  .article-section > .article-text {
     /* counter width + header h3 margin-left */
     margin-left: 90px;
   }
-  .article-text.compact{
+  .article-text.compact {
     margin-left: 0;
     margin-right: 230px;
   }

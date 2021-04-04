@@ -1,56 +1,57 @@
-footer{
+footer {
   background-color: var(--neutral-dark-blue);
   padding-top: 60px;
   color: var(--neutral-pale-gray);
 }
-footer a:focus, footer .btn:focus{
+footer a:focus,
+footer .btn:focus {
   outline-color: white;
 }
-.link{
+.link {
   color: inherit;
-  transition: .2s color;
+  transition: 0.2s color;
 }
-.link:hover{
+.link:hover {
   color: var(--primary-orange);
 }
-.logo>g>path{
+.logo > g > path {
   fill: var(--neutral-pale-gray);
 }
-.footer-grid>*:not(:first-child){
+.footer-grid > *:not(:first-child) {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.footer-grid > .article-text{
-  font-size: .8em;
-} 
-@media screen and (min-width:1440px){
-  .footer-grid>*:not(:first-child){
+.footer-grid > .article-text {
+  font-size: 0.8em;
+}
+@media screen and (min-width: 1000px) {
+  .footer-grid > *:not(:first-child) {
     margin: 0;
   }
-  .footer-grid{
+  .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
-    grid-template-areas: 
+    grid-template-areas:
       "logo nav nav input"
       "social nav nav copyright";
     column-gap: 20px;
     row-gap: 60px;
   }
-  .footer-grid > .text-form{
+  .footer-grid > .text-form {
     grid-area: input;
   }
-  .footer-grid > .social-medias{
+  .footer-grid > .social-medias {
     grid-area: social;
   }
-  .footer-grid > .logo{
+  .footer-grid > .logo {
     grid-area: logo;
     margin: auto;
   }
-  .footer-grid > .multi-columns{
+  .footer-grid > .multi-columns {
     grid-area: nav;
   }
-  .footer-grid > .article-text{
+  .footer-grid > .article-text {
     grid-area: copyright;
     text-align: right;
   }

@@ -1,21 +1,21 @@
-.fancy-container{
+.fancy-container {
   color: white;
-  margin: 50px calc(-1*var(--padding-horizontal-mobile)) 0;
+  margin: 50px calc(-1 * var(--padding-horizontal-mobile)) 0;
   background-color: var(--primary-orange);
-  background-image: url('../../images/bg-simplify-section-mobile.svg');
+  background-image: url("../../images/bg-simplify-section-mobile.svg");
   background-repeat: no-repeat;
-  background-position-y:30px ;
+  background-position-y: 30px;
   padding: 90px 50px 70px;
   /* background: url('../../images/bg-simplify-section-mobile.svg'); */
 }
-@media screen and (max-width:1440px){
-  .fancy-container > h2{
+@media screen and (max-width: 1000px) {
+  .fancy-container > h2 {
     font-size: 2em;
   }
 }
-@media screen and (min-width:1440px){
-  .fancy-container{
-    margin: 50px calc(-1*var(--padding-horizontal-desktop)) 0;
+@media screen and (min-width: 1000px) {
+  .fancy-container {
+    margin: 50px calc(-1 * var(--padding-horizontal-desktop)) 0;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -23,27 +23,28 @@
     padding: 60px 200px;
     background: unset;
   }
-  .fancy-container::before{
+  .fancy-container::before {
     z-index: -1;
     content: "";
     position: absolute;
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scale(-1,-1);
+    transform: scale(-1, -1);
     background-color: var(--primary-orange);
-    background-image: url('../../images/bg-simplify-section-desktop.svg');
+    background-image: url("../../images/bg-simplify-section-desktop.svg");
     background-position: calc(100% - 330px) -20px;
     background-size: 100%;
     background-repeat: no-repeat;
   }
-  .fancy-container > .round, .fancy-container > *{
+  .fancy-container > .round,
+  .fancy-container > * {
     margin: 0;
   }
-  .fancy-container > *{
+  .fancy-container > * {
     text-align: left;
   }
-  .fancy-container>h2 {
+  .fancy-container > h2 {
     width: 550px;
   }
 }

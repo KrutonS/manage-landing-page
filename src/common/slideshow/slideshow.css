@@ -16,7 +16,7 @@
   transition: transform 1.5s cubic-bezier(0.25, 0.1, 0.32, 1.1);
   min-height: 50px;
 }
-.slideshow-item{
+.slideshow-item {
   flex-shrink: 0;
   flex-grow: 0;
 }
@@ -34,7 +34,7 @@
   background: var(--primary-orange);
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 430px) {
   .slideshow {
     display: flex;
     justify-content: center;

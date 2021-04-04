@@ -63,7 +63,7 @@ h3 {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1000px) {
   .App {
     background-position: calc(75% + 340px) -150px, -650px 1000px;
     background-size: 800px, 900px;

@@ -1,21 +1,23 @@
-.social-medias{
+.social-medias {
   /* margin: 0 20px; */
   /* width: 200px; */
   display: flex;
   justify-content: center;
 }
-.social-medias__item{
+.social-medias__item {
   margin-right: 10px;
   width: 30px;
   height: 30px;
 }
-.social-medias__item > svg{
+.social-medias__item > svg {
   width: 100%;
   height: 100%;
 }
-.social-medias__item path{
-  transition: .2s fill;
+.social-medias__item path {
+  transition: 0.2s fill;
 }
-.social-medias__item:hover path, .social-medias__item:active path, .social-medias__item:focus path{
+.social-medias__item:hover path,
+.social-medias__item:active path,
+.social-medias__item:focus path {
   fill: var(--primary-orange);
 }

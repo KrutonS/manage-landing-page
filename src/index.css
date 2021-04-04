@@ -3,8 +3,7 @@
 
 :root {
   /** media queries */
-  --mobile-width: 375px;
-  --desktop-width: 1440px;
+  --desktop-width: 1000px;
 
   /**   colors    */
   --primary-orange: hsl(12, 88%, 59%);
