@@ -34,7 +34,7 @@
   background: var(--primary-orange);
 }
 
-@media screen and (min-width: 430px) {
+@media screen and (min-width: 1000px) {
   .slideshow {
     display: flex;
     justify-content: center;
