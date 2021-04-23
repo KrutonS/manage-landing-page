@@ -1,8 +1,8 @@
-import "./slideshow.css";
+import './slideshow.css';
 
-import React, { useContext, useEffect, useRef, useState } from "react";
-import classNames from "classnames";
-import { MobileScreenContext, addProps } from "../../globals";
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
+import { MobileScreenContext, addProps } from '../../globals';
 
 export default function Slideshow(props) {
 	// use this handler instead of setIndex
@@ -16,12 +16,12 @@ export default function Slideshow(props) {
 	// get repeated children and count
 	function generateChildren() {
 		if (props.children === undefined) {
-			console.warn("no slideshow children");
+			console.warn('no slideshow children');
 			return [];
 		}
 		const children = React.Children.map(props.children, (child, i) =>
 			addProps(child, {
-				className: classNames("slideshow-item", { active: i === index }),
+				className: classNames('slideshow-item', { active: i === index })
 			})
 		);
 		const childrenCount = React.Children.count(children);
@@ -44,10 +44,11 @@ export default function Slideshow(props) {
 	const dots = new Array(childrenCount)
 		.fill()
 		.map((_, i) => (
-			<span
-				className={classNames("slideshow-dot", { active: i === index })}
+			<button
+				className={classNames('slideshow-dot', { active: i === index })}
 				key={i}
 				onClick={() => handleSetIndex(i)}
+				onKeyDown={() => handleSetIndex(i)}
 			/>
 		));
 	const containerRef = useRef();
@@ -60,24 +61,23 @@ export default function Slideshow(props) {
 
 		function handleTransitionEnd() {
 			if (overflow) {
-				container.style.transition = "none";
+				container.style.transition = 'none';
 				setOverflow(false);
 			}
 		}
 
-		container.addEventListener("transitionend", handleTransitionEnd);
-		return () => container.removeEventListener("transitionend", handleTransitionEnd);
+		container.addEventListener('transitionend', handleTransitionEnd);
+		return () => container.removeEventListener('transitionend', handleTransitionEnd);
 	}, [overflow]);
 
 	// get and update width and gap
 	useEffect(() => {
 		// try{
 		setSlideData({
-			width:
-				props.slideRef.current !== undefined ? props.slideRef.current.clientWidth : 0,
+			width: props.slideRef.current !== undefined ? props.slideRef.current.clientWidth : 0,
 			gap: parseInt(
-				window.getComputedStyle(containerRef.current).getPropertyValue("column-gap")
-			),
+				window.getComputedStyle(containerRef.current).getPropertyValue('column-gap')
+			)
 		});
 		// }catch(e){console.warn('there are no children on slideshow')}
 	}, [props.slideRef, isMobile]);
@@ -86,7 +86,7 @@ export default function Slideshow(props) {
 	useEffect(() => {
 		function autoPlay() {
 			handleSetIndex(index + 1);
-			console.log("next");
+			console.log('next');
 		}
 		const autoPlayTimer = setTimeout(autoPlay, 5000);
 		return () => clearTimeout(autoPlayTimer);
@@ -97,13 +97,13 @@ export default function Slideshow(props) {
 	const translate = -(width + gap) / 2 - (width + gap) * (index + offset);
 	const style = { transform: `translateX(${translate}px)` };
 	return (
-		<section className='slideshow'>
-			<div className='slideshow-mask'>
-				<div className='slideshow-container' style={style} ref={containerRef}>
+		<section className="slideshow">
+			<div className="slideshow-mask">
+				<div className="slideshow-container" style={style} ref={containerRef}>
 					{children}
 				</div>
 			</div>
-			{isMobile && <div className='slideshow-dots-container'>{dots}</div>}
+			{isMobile && <div className="slideshow-dots-container">{dots}</div>}
 		</section>
 	);
 }

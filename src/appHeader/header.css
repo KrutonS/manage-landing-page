@@ -1,5 +1,8 @@
 .app-header {
   position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   background: rgb(255, 255, 255, 0.75);
   background: linear-gradient(
@@ -8,7 +11,7 @@
     rgba(255, 255, 255, 1) 100%
   );
   padding-top: 60px;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
   margin-bottom: 80px;
   z-index: 1;
 }
@@ -17,8 +20,8 @@ header > .logo {
 }
 
 .hamburger {
-  float: right;
-  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .app-header > .btn {
@@ -84,12 +87,6 @@ nav.show {
   .nav-item {
     margin: 0 !important;
     padding: 10px;
-  }
-  .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
   }
   .hamburger {
     display: none;

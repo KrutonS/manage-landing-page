@@ -8,8 +8,10 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "classnames": "^2.2.6",
+    "eslint-plugin-jest": "^24.3.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
@@ -18,21 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint --fix ./src/**/*.js",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:prettier/recommended"
-    ]
-  },
-  "prettier":{
-    "printWidth": 90,
-    "useTabs": true,
-    "jsxSingleQuote": true,
-    "arrowParens": "avoid"
+    "lint": "npx eslint --ignore-path .gitignore --fix **/*.js",
+    "analyze": "source-map-explorer --ignore-path .gitignore 'build/static/js/*.js'"
   },
   "browserslist": {
     "production": [
@@ -47,8 +36,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
+    "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "prettier": "^2.2.1"

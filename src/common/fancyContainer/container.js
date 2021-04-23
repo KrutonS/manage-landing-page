@@ -1,4 +1,4 @@
-import "./container.css";
+import './container.css';
 export default function FancyContainer(props) {
-	return <div className='fancy-container'>{props.children}</div>;
+	return <div className="fancy-container">{props.children}</div>;
 }
