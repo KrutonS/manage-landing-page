@@ -4,7 +4,7 @@ import Slideshow from '../slideshow/slideshow';
 import { OPINIONS, AVATARS } from '../../globals';
 import { forwardRef, memo, useRef } from 'react';
 
-let Opinion = forwardRef((props, ref) => {
+const Opinion = forwardRef((props, ref) => {
 	return (
 		<div className={props.className} id={props.id} ref={ref}>
 			<img className="avatar" src={props.avatar} alt="avatar" />
@@ -14,6 +14,7 @@ let Opinion = forwardRef((props, ref) => {
 	);
 });
 Opinion.displayName = 'Slideshow-slide';
+
 function Opinions() {
 	const opinionRef = useRef();
 	return (

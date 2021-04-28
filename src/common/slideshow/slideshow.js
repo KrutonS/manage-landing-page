@@ -34,7 +34,7 @@ export default function Slideshow(props) {
 	// it says what screen are you using (mobile, desktop)
 	const isMobile = useContext(MobileScreenContext);
 
-	//* **  STATE ****//
+	//* **  STATES ****//
 	const [index, setIndex] = useState(0);
 	const [overflow, setOverflow] = useState(false);
 	const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
@@ -43,14 +43,14 @@ export default function Slideshow(props) {
 	const { children, childrenCount } = generateChildren();
 	const dots = new Array(childrenCount)
 		.fill()
-		.map((_, i) => (
+		.map((_, dotI) => (
 			<button
-				className={classNames('slideshow-dot', { active: i === index })}
-				key={i}
-				onClick={() => handleSetIndex(i)}
-				onKeyDown={() => handleSetIndex(i)}
+				className={classNames('slideshow-dot', { active: dotI === index })}
+				key={dotI}
+				onClick={() => handleSetIndex(dotI)}
 			/>
-		));
+		)); //I do not plan to reorder these things or so, so using index as key is fine to me
+
 	const containerRef = useRef();
 	//* **  EFFECTS ***//
 
@@ -72,14 +72,12 @@ export default function Slideshow(props) {
 
 	// get and update width and gap
 	useEffect(() => {
-		// try{
 		setSlideData({
 			width: props.slideRef.current !== undefined ? props.slideRef.current.clientWidth : 0,
 			gap: parseInt(
 				window.getComputedStyle(containerRef.current).getPropertyValue('column-gap')
 			)
 		});
-		// }catch(e){console.warn('there are no children on slideshow')}
 	}, [props.slideRef, isMobile]);
 
 	// autoplay
@@ -90,8 +88,8 @@ export default function Slideshow(props) {
 		}
 		const autoPlayTimer = setTimeout(autoPlay, 5000);
 		return () => clearTimeout(autoPlayTimer);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [index]);
+
 	const { width, gap } = slideData;
 	const offset = overflow ? 0 : -childrenCount;
 	const translate = -(width + gap) / 2 - (width + gap) * (index + offset);
