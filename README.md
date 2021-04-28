@@ -34,10 +34,8 @@ Users should be able to:
 ![](./screenshot.jpg)
 
 ### Links
-<!---
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
---->
+- Solution URL: [Link](https://www.frontendmentor.io/solutions/manage-landing-page-with-react-5vkrfGyjY)
+- Live Site URL: [Link](https://krutons.github.io/)
 ## My process
 
 ### Built with
@@ -53,11 +51,6 @@ Users should be able to:
 
 
 ### What I learned
-<!--
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
--->
 This exercise was for me to learn some **React** basics and reinforce some of the knowledge I had before. I have learned **class components**, though I preferred to use **function components** with **hooks** like `useState`, `useEffect`, `useRef`, `useMemo`, `forwardRef`, `useContext` and so on.
 #### Some `code` highlights
 * ###### Updating `state` with `effects`
