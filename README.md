@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 - Solution URL: [Link](https://www.frontendmentor.io/solutions/manage-landing-page-with-react-5vkrfGyjY)
-- Live Site URL: [Link](https://krutons.github.io/)
+- Live Site URL: [Link](https://krutons.github.io/manage-landing-page/)
 ## My process
 
 ### Built with
