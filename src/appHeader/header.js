@@ -7,7 +7,7 @@ import logoSVG from '../images/logo.svg';
 import hamburgerSVG from '../images/icon-hamburger.svg';
 import closeSVG from '../images/icon-close.svg';
 import { GetStartedBtn } from '../common/buttons/buttons';
-import { homepage, MobileScreenContext } from '../globals';
+import { MobileScreenContext } from '../globals';
 import { Link } from 'react-router-dom';
 
 function Nav(props) {
@@ -16,19 +16,19 @@ function Nav(props) {
 		<>
 			{isMobile && <div className={classNames('nav-blackout', { show })} />}
 			<nav className={classNames('dialog', { show })}>
-				<Link to={`${homepage}/pricing`} className="nav-item">
+				<Link to="/pricing" className="nav-item">
 					Pricing
 				</Link>
-				<Link to={`${homepage}/product`} className="nav-item">
+				<Link to="/product" className="nav-item">
 					Product
 				</Link>
-				<Link to={`${homepage}/about`} className="nav-item">
+				<Link to="/about" className="nav-item">
 					About Us
 				</Link>
-				<Link to={`${homepage}/careers`} className="nav-item">
+				<Link to="/careers" className="nav-item">
 					Careers
 				</Link>
-				<Link to={`${homepage}/community`} className="nav-item">
+				<Link to="/community" className="nav-item">
 					Community
 				</Link>
 			</nav>
@@ -44,7 +44,7 @@ export default function AppHeader() {
 
 	return (
 		<header className="app-header">
-			<Link to={homepage}>
+			<Link to="/">
 				<img className="logo" src={logoSVG} alt="manage logo" />
 			</Link>
 			<button className={classNames('hamburger', { show })} onClick={() => setShow(!show)}>

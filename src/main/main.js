@@ -8,28 +8,27 @@ import Careers from './careers/careers';
 import About from './about/about';
 import Pricing from './pricing/pricing';
 import Product from './product/product';
-import { homepage } from '../globals';
 
 export default function Main() {
 	return (
 		<main>
 			<Switch>
-				<Route exact path={homepage}>
+				<Route exact path="/">
 					<Home />
 				</Route>
-				<Route path={`${homepage}/community`}>
+				<Route path="/community">
 					<Community />
 				</Route>
-				<Route path={`${homepage}/careers`}>
+				<Route path="/careers">
 					<Careers />
 				</Route>
-				<Route path={`${homepage}/about`}>
+				<Route path="/about">
 					<About />
 				</Route>
-				<Route path={`${homepage}/pricing`}>
+				<Route path="/pricing">
 					<Pricing />
 				</Route>
-				<Route path={`${homepage}/product`}>
+				<Route path="/product">
 					<Product />
 				</Route>
 			</Switch>

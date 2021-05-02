@@ -13,37 +13,37 @@ function Grid() {
 			<TextForm placeholder="Updates in your inbox…" btnValue="Go" />
 			<MultiColumn columns={2}>
 				<p>
-					<Link className="link" to={`${homepage}/Home`}>
+					<Link className="link" to="/Home">
 						Home
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/Pricing`}>
+					<Link className="link" to="/Pricing">
 						Pricing
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/Products`}>
+					<Link className="link" to="/Products">
 						Products
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/About`}>
+					<Link className="link" to="/About">
 						About Us
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/Careers`}>
+					<Link className="link" to="/Careers">
 						Careers
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/Community`}>
+					<Link className="link" to="/Community">
 						Community
 					</Link>
 				</p>
 				<p>
-					<Link className="link" to={`${homepage}/Privacy`}>
+					<Link className="link" to="/Privacy">
 						Privacy Policy
 					</Link>
 				</p>
