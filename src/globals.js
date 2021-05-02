@@ -68,3 +68,5 @@ export function addProps(node, addProps) {
 const MobileScreenContext = createContext();
 MobileScreenContext.displayName = 'mobileScreenContext';
 export { MobileScreenContext };
+
+export const homepage = '/manage-landing-page';

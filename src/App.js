@@ -22,7 +22,7 @@ function useCheckIfMobileState() {
 }
 function App() {
 	return (
-		<Router>
+		<Router basename="/manage-landing-page">
 			<div className="App">
 				<MobileScreenContext.Provider value={useCheckIfMobileState()}>
 					<AppHeader />
