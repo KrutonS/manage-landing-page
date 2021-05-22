@@ -5,52 +5,54 @@ import TextForm from '../common/TextForm/textForm';
 import { ArticleText } from '../common/articles/articles';
 import MultiColumn from '../common/multiColumn/multiColumn';
 import SocialMedias from '../common/socialMedias/social';
+import { Link } from 'react-router-dom';
+import { homepage } from '../globals';
 function Grid() {
 	return (
 		<div className="footer-grid">
 			<TextForm placeholder="Updates in your inbox…" btnValue="Go" />
 			<MultiColumn columns={2}>
 				<p>
-					<a className="link" href="Home">
+					<Link className="link" to="/Home">
 						Home
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="Pricing">
+					<Link className="link" to="/Pricing">
 						Pricing
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="Products">
+					<Link className="link" to="/Products">
 						Products
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="About">
+					<Link className="link" to="/About">
 						About Us
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="Careers">
+					<Link className="link" to="/Careers">
 						Careers
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="Community">
+					<Link className="link" to="/Community">
 						Community
-					</a>
+					</Link>
 				</p>
 				<p>
-					<a className="link" href="Privacy">
+					<Link className="link" to="/Privacy">
 						Privacy Policy
-					</a>
+					</Link>
 				</p>
 			</MultiColumn>
 			<SocialMedias />
 			{/* <img className='logo' src={logoSVG} alt='manage logo' /> */}
-			<a href="/">
+			<Link to={homepage}>
 				<Logo className="logo" title="manage logo" />
-			</a>
+			</Link>
 			<ArticleText>Copyright 2020. All Rights Reserved</ArticleText>
 		</div>
 	);

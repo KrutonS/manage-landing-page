@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 
 import anisha from './images/avatar-anisha.png';
 import ali from './images/avatar-ali.png';
@@ -65,6 +65,8 @@ export function addProps(node, addProps) {
 	return React.cloneElement(node, props);
 }
 
-const MobileScreenContext = createContext();
-MobileScreenContext.displayName = 'mobileScreenContext';
-export { MobileScreenContext };
+// const MobileScreenContext = createContext();
+// MobileScreenContext.displayName = 'mobileScreenContext';
+// export { MobileScreenContext };
+
+export const homepage = '/manage-landing-page';

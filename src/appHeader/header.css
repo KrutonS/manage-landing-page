@@ -99,4 +99,7 @@ nav.show {
     display: inline-block;
     margin: 0 15px;
   }
+	.nav-blackout{
+		display: none;
+	}
 }

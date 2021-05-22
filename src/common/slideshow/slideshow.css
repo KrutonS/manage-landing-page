@@ -22,9 +22,7 @@
 }
 .slideshow-dot {
   cursor: pointer;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
+  height: 19px;
   margin: 0 5px;
   border-radius: 100%;
   background: white;
@@ -40,4 +38,7 @@
     justify-content: center;
     margin: 0 calc(-1 * var(--padding-horizontal-desktop)) 50px;
   }
+	.slideshow-dots-container{
+		display: none;
+	}
 }

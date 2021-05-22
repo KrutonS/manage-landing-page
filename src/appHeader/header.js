@@ -1,20 +1,19 @@
 import './header.css';
 
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 
 import logoSVG from '../images/logo.svg';
 import hamburgerSVG from '../images/icon-hamburger.svg';
 import closeSVG from '../images/icon-close.svg';
 import { GetStartedBtn } from '../common/buttons/buttons';
-import { MobileScreenContext } from '../globals';
 import { Link } from 'react-router-dom';
 
 function Nav(props) {
-	const { isMobile, show } = props;
+	const { show } = props;
 	return (
 		<>
-			{isMobile && <div className={classNames('nav-blackout', { show })} />}
+			<div className={classNames('nav-blackout', { show })} />
 			<nav className={classNames('dialog', { show })}>
 				<Link to="/pricing" className="nav-item">
 					Pricing
@@ -37,8 +36,6 @@ function Nav(props) {
 }
 
 export default function AppHeader() {
-	// const [isMobile, setIsMobile] = useState(checkIfMobile());
-	const isMobile = useContext(MobileScreenContext);
 
 	const [show, setShow] = useState(false);
 
@@ -50,7 +47,7 @@ export default function AppHeader() {
 			<button className={classNames('hamburger', { show })} onClick={() => setShow(!show)}>
 				<img src={show ? closeSVG : hamburgerSVG} alt="menu" />
 			</button>
-			<Nav isMobile={isMobile} show={show} />
+			<Nav show={show} />
 			<GetStartedBtn />
 		</header>
 	);
