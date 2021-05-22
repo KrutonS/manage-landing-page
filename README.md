@@ -65,7 +65,7 @@ This exercise was for me to learn some **React** basics and reinforce some of th
 		});
 	}, [props.slideRef, isMobile]);
 ```
-* ###### `Forwarding ref` to use in Slideshow
+* ###### `Forwarding ref` to use in Slideshow.js
 ```js
 const Opinion = forwardRef((props, ref) => {
 	return (
@@ -78,26 +78,27 @@ const Opinion = forwardRef((props, ref) => {
 });
 Opinion.displayName = 'Slideshow-slide';
 ```
-* ###### isMobile `Context` managed with `custom hook`
 ```js
-function useCheckIfMobileState() {
-	const queryList = window.matchMedia('(min-width:1000px)');
-	const [isMobile, setIsMobile] = useState(!queryList.matches);
-	useEffect(() => {
-		const listener = () => setIsMobile(!queryList.matches);
-		queryList.addEventListener('change', listener);
-		return () => queryList.removeEventListener('change', listener);
-	}, [queryList]);
-	return isMobile;
-}
+// get and update width and gap
+	function useSlide() {
+		const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
+		useEffect(() => {
+			const update = debounce(() => {
+				setSlideData({
+					width: props.slideRef.current?.clientWidth || 0,
+					gap: parseInt(
+						window.getComputedStyle(containerRef.current).getPropertyValue('column-gap')
+					)
+				});
+			}, 200);
+			window.addEventListener('resize', update);
+			update();
+			return () => window.removeEventListener('resize', update);
+		}, [props.slideRef.current]);
+		return slideData;
+	}
 ```
-```js
-	<MobileScreenContext.Provider value={useCheckIfMobileState()}>
-		<AppHeader />
-		<Main />
-		<Footer />
-	</MobileScreenContext.Provider>
-```
+Used context too, but later on found it obsolete
 #### And so on...
 The hardest component was possibly the Slideshow, as it was the most interactive part of the page. [Code here](https://github.com/KrutonS/manage-landing-page/tree/main/src/common/slideshow)
 Side effect of working on this website was also learning about `eslint`, `prettier` and integrating them together with `React` and `VS Code` as external files.
