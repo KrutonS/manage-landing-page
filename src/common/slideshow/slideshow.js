@@ -1,8 +1,8 @@
 import './slideshow.css';
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { MobileScreenContext, addProps } from '../../globals';
+import { addProps } from '../../globals';
 
 export default function Slideshow(props) {
 	// use this handler instead of setIndex
@@ -31,13 +31,23 @@ export default function Slideshow(props) {
 		);
 		return { children: items, childrenCount };
 	}
+	// use function less often
+	function debounce(fn, ms) {
+		let timeout;
+		return () => {
+			clearTimeout(timeout);
+			timeout = setTimeout(() => {
+				timeout = null;
+				fn();
+			}, ms);
+		};
+	}
 	// it says what screen are you using (mobile, desktop)
-	const isMobile = useContext(MobileScreenContext);
+	// const isMobile = useContext(MobileScreenContext);
 
 	//* **  STATES ****//
 	const [index, setIndex] = useState(0);
 	const [overflow, setOverflow] = useState(false);
-	const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
 
 	//* ** nodes ***//
 	const { children, childrenCount } = generateChildren();
@@ -65,32 +75,39 @@ export default function Slideshow(props) {
 				setOverflow(false);
 			}
 		}
-
 		container.addEventListener('transitionend', handleTransitionEnd);
 		return () => container.removeEventListener('transitionend', handleTransitionEnd);
 	}, [overflow]);
 
 	// get and update width and gap
-	useEffect(() => {
-		setSlideData({
-			width: props.slideRef.current !== undefined ? props.slideRef.current.clientWidth : 0,
-			gap: parseInt(
-				window.getComputedStyle(containerRef.current).getPropertyValue('column-gap')
-			)
-		});
-	}, [props.slideRef, isMobile]);
+	function useSlide() {
+		const [slideData, setSlideData] = useState({ width: 0, gap: 0 });
+		useEffect(() => {
+			const update = debounce(() => {
+				setSlideData({
+					width: props.slideRef.current?.clientWidth || 0,
+					gap: parseInt(
+						window.getComputedStyle(containerRef.current).getPropertyValue('column-gap')
+					)
+				});
+			}, 200);
+			window.addEventListener('resize', update);
+			update();
+			return () => window.removeEventListener('resize', update);
+		}, [props.slideRef.current]);
+		return slideData;
+	}
 
 	// autoplay
 	useEffect(() => {
 		function autoPlay() {
 			handleSetIndex(index + 1);
-			console.log('next');
 		}
 		const autoPlayTimer = setTimeout(autoPlay, 5000);
 		return () => clearTimeout(autoPlayTimer);
 	}, [index]);
 
-	const { width, gap } = slideData;
+	const { width, gap } = useSlide();
 	const offset = overflow ? 0 : -childrenCount;
 	const translate = -(width + gap) / 2 - (width + gap) * (index + offset);
 	const style = { transform: `translateX(${translate}px)` };
@@ -101,7 +118,7 @@ export default function Slideshow(props) {
 					{children}
 				</div>
 			</div>
-			{isMobile && <div className="slideshow-dots-container">{dots}</div>}
+			<div className="slideshow-dots-container">{dots}</div>
 		</section>
 	);
 }
