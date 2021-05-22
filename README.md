@@ -98,7 +98,7 @@ Opinion.displayName = 'Slideshow-slide';
 		return slideData;
 	}
 ```
-Used context too, but later on found it obsolete
+Used `context` too, but later on found it obsolete
 #### And so on...
 The hardest component was possibly the Slideshow, as it was the most interactive part of the page. [Code here](https://github.com/KrutonS/manage-landing-page/tree/main/src/common/slideshow)
 Side effect of working on this website was also learning about `eslint`, `prettier` and integrating them together with `React` and `VS Code` as external files.
